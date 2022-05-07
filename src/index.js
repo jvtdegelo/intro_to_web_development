@@ -1,12 +1,25 @@
 import express from "express";
 
+const PORT = 3000;
+
 const server = express();
 
 server.get("/", (request, response)=>{
-    console.log("Hello my friend");
-    response.send("<h1>Hello nooob<\h1>");
+    const meuObj = {
+        status: "ok",
+        data: {
+            username:"john",
+            age:"20"
+        }
+    }
+    response.json(meuObj);
 });
 
-server.listen(3000, ()=>{
-    console.log("ok");
+server.post("/echo", (req, res)=>{
+    console.log(req.body)
+    res.send("ok")
+});
+
+server.listen(PORT, ()=>{
+    console.log(`listening on ${PORT}`);
 });
