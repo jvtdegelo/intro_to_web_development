@@ -1,5 +1,5 @@
-import express from "express";
-import productRouter from "./routes/products.js"
+// import express from "express";
+// import productRouter from "./routes/products.js"
 import mongoose from "mongoose";
 
 const PORT = 3000;
@@ -17,9 +17,20 @@ mongoose.connect("mongodb://localhost:27017/aula_db")
     .then(() => console.log("Conectado"));
 
 
-const productModel = mongoose.model("Product");
+const ProductSchema = new mongoose.Schema({
+    "name":String
+});
+
+const productModel = mongoose.model("Product", ProductSchema);
 
 const meuProduto = new productModel();
 meuProduto.name = "shampoo";
-meuProducto.save()
-    .then(()=>)
+meuProduto.save()
+  .then(() => console.log("Salvo"))
+  .catch((e) => console.error(e));
+
+
+productModel
+    .find()
+    .then((objs) => console.log(objs))
+    .catch((error) => console.error(error))
