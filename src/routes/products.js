@@ -1,11 +1,10 @@
 import { Router } from 'express';
 
+
 const router = new Router();
 
-router.get('/:tipo', (request, response) => {
-  // response.json(meuObj);
-  console.log(request.query.pageSize);
-  console.log(request.params.tipo);
+router.get('/:name', (request, response) => {
+  
 
   response
     .status(201)
