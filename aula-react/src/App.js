@@ -1,22 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import TopNavBar from './components/TopNavBar';
+import ResultList from './components/ResultList';
+import FloatingCard from './components/FloatingCard';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Reacteee
-        </a>
+    <div>
+      <header >
+        <TopNavBar/>
+        <div style = {{display:'flex'}}>
+          <ResultList/>
+          <FloatingCard/>
+        </div>
       </header>
     </div>
   );
